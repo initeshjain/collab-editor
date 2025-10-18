@@ -1,40 +1,120 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+Here is a comprehensive README file template tailored for your collaborative editor project using Next.js and Socket.IO with a custom server. This will help users understand your project purpose, setup, usage, and contribution.
 
-## Getting Started
+***
 
-First, run the development server:
+# Collaborative Real-Time Text Editor
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+A real-time collaborative text editor built with Next.js (Pages Router) and Socket.IO.  
+Supports live multi-user editing with Operational Transformation (OT) conflict resolution.  
+Uses a custom Node.js server combining Next.js and Socket.IO for real-time sync.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+***
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Table of Contents
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+1. [Project Overview](#project-overview)  
+2. [Features](#features)  
+3. [Tech Stack](#tech-stack)  
+4. [Installation](#installation)  
+5. [Usage](#usage)  
+6. [Development](#development)  
+7. [Session Cleanup & Persistence](#session-cleanup--persistence)  
+8. [Contributing](#contributing)  
+9. [License](#license)  
+10. [Author](#author)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+***
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Overview
 
-## Learn More
+This project implements a collaborative text editor allowing multiple users to edit the same document simultaneously, with changes synced in real-time via WebSockets using the Socket.IO library. It demonstrates a custom Next.js server setup integrating Socket.IO, with a basic operational transform algorithm to handle concurrent edits.
 
-To learn more about Next.js, take a look at the following resources:
+***
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+## Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Real-time multi-user document editing  
+- Conflict resolution via simplified Operational Transformation  
+- Dynamic document sessions by UUID  
+- Session inactivity cleanup after 10 minutes to save memory  
+- Lightweight, server-driven, no external database dependency (can be extended)  
+- Styled with Tailwind CSS mimicking VSCode dark theme  
 
-## Deploy on Vercel
+***
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Tech Stack
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+- [Next.js](https://nextjs.org/) (Pages Router)  
+- [React](https://reactjs.org/)  
+- [Socket.IO](https://socket.io/) (real-time communication)  
+- Node.js custom server for Next.js + Socket.IO integration  
+- Tailwind CSS for modern UI styling  
+
+***
+
+## Installation
+
+1. Clone the repository:  
+   ```bash
+   git clone https://github.com/initeshjain/collab-editor.git
+   cd collab-editor
+   ```
+
+2. Install dependencies:  
+   ```bash
+   npm install
+   ```
+
+3. Run the development server:  
+   ```bash
+   npm run dev
+   ```
+
+***
+
+## Usage
+
+- Open [http://localhost:3000](http://localhost:3000)  
+- Click “Create Document” to start a new document session  
+- Share the URL with others to collaborate in real-time  
+- Edits sync live with conflict resolution  
+
+***
+
+## Development
+
+The app runs with a custom Next.js + Socket.IO server (`server.js`).  
+Sessions inactive for 10 minutes are cleared automatically to free resources.  
+New activity recreates sessions if needed.
+
+***
+
+## Session Cleanup & Persistence
+
+- Documents and operations are stored in-memory via a JavaScript `Map`.  
+- Inactivity cleanup runs every minute, removing sessions idle for >10 minutes.  
+- If a session is removed while a user is active, it is automatically recreated on new activity.  
+
+***
+
+## Contributing
+
+Contributions are welcome!
+
+- Fork the repository  
+- Create a feature branch  
+- Submit pull requests with descriptive commits  
+- Report issues on GitHub
+
+***
+
+## License
+
+[MIT License](LICENSE)
+
+***
+
+## Author
+
+Created with ❤️ by [@initeshjain](https://github.com/initeshjain)
+
