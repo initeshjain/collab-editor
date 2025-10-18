@@ -2,7 +2,7 @@
 import { useEffect, useState, useRef } from 'react';
 import io from 'socket.io-client';
 
-const HOSTNAME = process.env.HOSTNAME || 'http://localhost:3000'
+const HOSTNAME = process.env.NEXT_PUBLIC_HOSTNAME || 'http://localhost:3000'
 
 export default function CollaborativeEditor({ documentId }) {
     const [content, setContent] = useState('');
