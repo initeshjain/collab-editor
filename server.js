@@ -5,9 +5,9 @@ import { Server as SocketIOServer } from "socket.io";
 
 const INACTIVITY_LIMIT = 10 * 60 * 1000; // 10 minutes in milliseconds
 
-const dev = process.env.NEXT_PUBLIC_NODE_ENV !== "production";
+const dev = process.env.NODE_ENV !== "production";
 const hostname = process.env.NEXT_PUBLIC_HOSTNAME || '0.0.0.0';
-const port = parseInt(process.env.NEXT_PUBLIC_PORT, 10) || 3000;
+const port = parseInt(process.env.PORT, 10) || 3000;
 
 const app = next({ dev, hostname, port });
 const handler = app.getRequestHandler();
