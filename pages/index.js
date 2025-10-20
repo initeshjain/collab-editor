@@ -16,7 +16,7 @@ export default function Home() {
       </h1>
       <button
         onClick={createSession}
-        className="px-8 py-3 bg-white text-indigo-700 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 font-semibold text-lg focus:outline-none focus:ring-4 focus:ring-indigo-300"
+        className="px-8 py-3 bg-white text-indigo-700 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 font-semibold text-lg focus:outline-none focus:ring-4 focus:ring-indigo-300 cursor-pointer"
         type="button"
       >
         Create Document
