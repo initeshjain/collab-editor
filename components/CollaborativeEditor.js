@@ -2,7 +2,7 @@
 import { useEffect, useState, useRef } from 'react';
 import io from 'socket.io-client';
 
-const HOSTNAME = process.env.NEXT_PUBLIC_HOSTNAME || 'http://localhost:3000'
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL
 
 export default function CollaborativeEditor({ documentId }) {
     const [content, setContent] = useState('');
@@ -12,7 +12,7 @@ export default function CollaborativeEditor({ documentId }) {
     const pendingOps = useRef([]);
 
     useEffect(() => {
-        socketRef.current = io(HOSTNAME, {
+        socketRef.current = io(BACKEND_URL, {
             transports: ['websocket'],
         });
 

@@ -1,0 +1,19 @@
+{
+  "name": "collab-editor-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": {
+    "name": "Nitesh Jain",
+    "url": "https://initeshjain.github.io"
+  },
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "socket.io": "^4.8.1"
+  }
+}
